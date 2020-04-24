@@ -4,12 +4,12 @@ import tkinter
 
 window =tkinter.Tk()
 
-label = Label( window, text="Player 1:(O)", font='Times 15 bold', bg='white', fg='black', height=1, width=9)
+label = Label( window, text="Player 1:(X)", font='Times 15 bold', bg='white', fg='black', height=1, width=9)
 label.grid(row=0, column=0)
 Player1 = tkinter.Entry(window,text="Player 1")
 Player1.grid(row=0,column=1)
 
-labe2 = Label( window, text="Player 2:(X)", font='Times 15 bold', bg='white', fg='black', height=1, width=9)
+labe2 = Label( window, text="Player 2:(O)", font='Times 15 bold', bg='white', fg='black', height=1, width=9)
 labe2.grid(row=1, column=0)
 Player2 = tkinter.Entry(window,text="Player 2")
 Player2.grid(row=1,column=1)
@@ -33,6 +33,8 @@ def reset():
     button7["text"] = " "
     button8["text"] = " "
     button9["text"] = " "
+    Player1.delete(0,END)
+    Player2.delete(0,END)
 reset = Button(window,text="RESET",width=10,height=2,bg="lightgray",fg="black",font=("Arial",10,"bold"),command = reset)
 reset.grid(row=1,column=2)
 
@@ -89,31 +91,31 @@ def checkForWin():
         tkinter.messagebox.showinfo("Tic-Tac-Toe","Match Tied")
         disableButton()
 
-button1 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button1))
+button1 = Button(window, text=' ',font='Times 20 bold', bg='red', fg='black', height=4, width=8, command=lambda: btnClick(button1))
 button1.grid(row=3,column=0)
 
-button2 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button2))
+button2 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button2))
 button2.grid(row=3, column=1)
 
-button3 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button3))
+button3 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button3))
 button3.grid(row=3, column=2)
 
-button4 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button4))
+button4 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button4))
 button4.grid(row=4, column=0)
 
-button5 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button5))
+button5 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button5))
 button5.grid(row=4, column=1)
 
-button6 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button6))
+button6 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button6))
 button6.grid(row=4, column=2)
 
-button7 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button7))
+button7 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button7))
 button7.grid(row=5, column=0)
 
-button8 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button8))
+button8 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button8))
 button8.grid(row=5, column=1)
 
-button9 = Button(window, text=' ', font='Times 20 bold', bg='white', fg='black', height=4, width=8, command=lambda: btnClick(button9))
+button9 = Button(window, text=' ', font='Times 20 bold', bg="red", fg='black', height=4, width=8, command=lambda: btnClick(button9))
 button9.grid(row=5, column=2)
 
 window.mainloop()
