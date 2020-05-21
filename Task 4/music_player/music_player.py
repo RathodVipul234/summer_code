@@ -16,7 +16,7 @@ window.geometry("900x500")
 window.title("Music Player")
 window.resizable(False,False)
 window.configure(bg="blue")
-window.iconbitmap("music.ico")
+# window.iconbitmap("music.ico")
 #################################################################################################
 
 #################################################################################################
@@ -115,14 +115,15 @@ def pause():
 
 isMute = True
 def mute():
+    global isMute ,isMute,origenal_music  # first time click Its mute Mode and secound time when you click its unmute mode
     if play_btn_clicked == True:
-        global isMute    #first time click Its mute Mode and secound time when you click its unmute mode
         if isMute==True:
+            origenal_music = mixer.music.get_volume( )
             mixer.music.set_volume(0)
             isMute = False
             mute_button.configure(bg="gray")
         else:
-            mixer.music.set_volume(100)
+            mixer.music.set_volume(origenal_music)
             isMute = True
             mute_button.configure(bg = "white")
     else:
@@ -213,13 +214,14 @@ def history():
         tkinter.messagebox.showerror("Empty List","Empty Play List")
 
 def vol_plus():
-    global volume
+    global volume,isMute
     volume += 0.05
     if volume > 1.03:
         volume = 1
     else:
         volume_progress['value'] = volume
-        pygame.mixer.music.set_volume(volume)
+        if isMute == True:
+            pygame.mixer.music.set_volume(volume)
 
 def vol_minus():
     global volume
@@ -227,8 +229,9 @@ def vol_minus():
     if volume < -0.05:
         volume = 0
     else:
-        pygame.mixer.music.set_volume(volume)
         volume_progress ['value'] = volume
+        if isMute == True:
+            pygame.mixer.music.set_volume(volume)
                                             # END - Function
                                                 #END - Functions
 #################################################################################################
